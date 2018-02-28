@@ -1,16 +1,15 @@
 #!/bin/bash
-i="0"
-while [ LOOP ]
-do		
-	
-	h=$(md5 -s "$i")
 
+i="-1"
+while [ LOOP ]
+ do
+  h=$(md5 -s "$i")
   if [[ $h = 'MD5 ("'$i'") = f899139df5e1059396431415e770c6dd' ]] #EXAMPLE MD5 -s 100 = f899139df5e1059396431415e770c6dd
-    then 
+   then 
     break
   else
-  i=$[$i+1]
-  fi
+   i=$[$i+1]
+ fi
 done
 echo "[FIND] $h"
-#echo "[FIND] $h" > ~/FIND.TXT4
+#echo "[FIND] $h" > ~/FIND.TXT

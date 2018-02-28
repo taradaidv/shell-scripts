@@ -1,4 +1,4 @@
 # shell-scripts
-dns.sh - get dns records by domains list
+sh/dns.sh - get dns records by domains list
 <br>
-brute.sh - MD5 BruteForce (only for numbers)
+sh/brute.sh - MD5 BruteForce (only for numbers)

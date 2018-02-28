@@ -1,6 +1,6 @@
 #!/bin/bash
 i="0"
-while [ a=a ]
+while [ LOOP ]
 do		
 	
 	h=$(md5 -s "$i")

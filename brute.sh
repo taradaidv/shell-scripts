@@ -1,6 +1,5 @@
 #!/bin/bash
 i="0"
-clear
 while [ a=a ]
 do		
 	

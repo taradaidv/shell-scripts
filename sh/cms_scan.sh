@@ -15,16 +15,17 @@ do
 #net scan
 echo "Scan: "$ip
      for port in {80,8080}; do
-		content=$(curl --insecure -s -m5 -L 'http://'$ip':'$port)
-		(echo >/dev/tcp/$ip/$port) &>/dev/null && ([[ "$content" == *$3* ]] && echo ">>>[$3] = http://$ip:$port")
+		content=$(curl --insecure -s -m2 -L 'http://'$ip':'$port)
+		(timeout 1 bash -c "</dev/tcp/$ip/$port") &>/dev/null && ([[ "$content" == *$3* ]] && echo ">>>[$3] = http://$ip:$port")
 	done
 	
 	for port in {443,8433}; do
-		content=$(curl --insecure -s -m5 -L 'https://'$ip':'$port)
-		(echo >/dev/tcp/$ip/$port) &>/dev/null && ([[ "$content" == *$3* ]] && echo ">>>[$3] = https://$ip:$port")
+		content=$(curl --insecure -s -m2 -L 'https://'$ip':'$port)
+		(timeout 1 bash -c "</dev/tcp/$ip/$port") &>/dev/null && ([[ "$content" == *$3* ]] && echo ">>>[$3] = https://$ip:$port")
 		
 	done
-	
+
+#	
 #pstr="[====================================================================]"
 #i=0
 #while [ $i -lt $1 ]; do
